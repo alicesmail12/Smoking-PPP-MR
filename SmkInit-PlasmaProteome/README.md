@@ -7,7 +7,7 @@ SmkInitPlasmaProteome.R performs separate MR analyses to estimate the causal eff
     * Phenotype: ever or never being a regular smoker.
     * Population: 2,669,029 European individuals from the US, Europe & Australia.
 
-- Exposure validation GWAS: Smoking Initiation (GSCANSmkInit2022EUR.txt )
+- Exposure Validation GWAS: Cigarettes per Day (GSCANSmkInit2022EUR.txt )
   - Saunders et al. (2022) Genetic diversity fuels gene discovery for tobacco and alcohol use.
     - Phenotype: ever or never being a regular smoker.
     - Population: 2,669,029 European individuals from the US, Europe & Australia.
