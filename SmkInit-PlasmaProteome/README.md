@@ -7,11 +7,23 @@ SmkInitPlasmaProteome.R performs separate MR analyses to estimate the causal eff
     * Phenotype: ever or never being a regular smoker.
     * Population: 2,669,029 European individuals from the US, Europe & Australia.
 
-- Outcome GWAS: deCODE Plasma Proteome URLs (PlasmaProteomeURLs.txt)
-  - Eldjarn et al. (2023) *Large-scale plasma proteomics comparisons through genetics and disease associations*.
-    - Phenotype: plasma protein abundance measured using Olink.
-    - Population: 46,218 British or Irish individuals from the UK BioBank.
-  - URL list obtained from www.decode.com/summarydata/
+- Exposure validation GWAS: Smoking Initiation (GSCANSmkInit2022EUR.txt )
+  - Saunders et al. (2022) Genetic diversity fuels gene discovery for tobacco and alcohol use.
+    - Phenotype: ever or never being a regular smoker.
+    - Population: 2,669,029 European individuals from the US, Europe & Australia.
+
+* Outcome GWAS: UK BioBank Plasma Proteome URLs (PlasmaProteomeURLs.txt)
+  * Eldjarn et al. (2023) *Large-scale plasma proteomics comparisons through genetics and disease associations*.
+    * Phenotype: plasma protein abundance measured using Olink.
+    * Population: 46,218 British or Irish individuals from the UK BioBank.
+    * 160 outcome datasets identified with the search terms: ‘Interleukin’, ‘CXCL’, ‘CCL’, ‘CSF’, ‘TNF’, ‘IFN’, ‘DEF’, ‘FASLG’ and ‘CX3CL1’. 
+  * URL list obtained from www.decode.com/summarydata/
+
+- Outcome Validation GWAS: DeCode Plasma Proteome URLs (PlasmaProteomeURLs.txt)
+  - Eldjarn et al. (2023) Large-scale plasma proteomics comparisons through genetics and disease associations.
+    - Phenotype: OX40 abundance measured using Somascan.
+    - Population: 35,559 Icelanders from DeCode.
+  - URL obtained from www.decode.com/summarydata/
 
 ### Steps
 1. SmkInit GWAS filtered & formatted for MR.
