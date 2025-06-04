@@ -7,8 +7,8 @@ SmkInitPlasmaProteome.R performs separate MR analyses to estimate the causal eff
     * Phenotype: ever or never being a regular smoker.
     * Population: 2,669,029 European individuals from the US, Europe & Australia.
 
-- Exposure Validation GWAS: Cigarettes per Day (GSCANCigDay2022EUR.txt )
-  - Saunders et al. (2022) Genetic diversity fuels gene discovery for tobacco and alcohol use.
+- Exposure Validation GWAS: Cigarettes per Day
+  - Saunders et al. (2022) *Genetic diversity fuels gene discovery for tobacco and alcohol use.*
     - Phenotype: ever or never being a regular smoker.
     - Population: 2,669,029 European individuals from the US, Europe & Australia.
 
@@ -19,9 +19,9 @@ SmkInitPlasmaProteome.R performs separate MR analyses to estimate the causal eff
     * 160 outcome datasets identified with the search terms: ‘Interleukin’, ‘CXCL’, ‘CCL’, ‘CSF’, ‘TNF’, ‘IFN’, ‘DEF’, ‘FASLG’ and ‘CX3CL1’. 
   * URL list obtained from www.decode.com/summarydata/
 
-- Outcome Validation GWAS: DeCode Plasma Proteome URLs (PlasmaProteomeURLs.txt)
-  - Eldjarn et al. (2023) Large-scale plasma proteomics comparisons through genetics and disease associations.
-    - Phenotype: OX40 abundance measured using Somascan.
+- Outcome Validation GWAS: DeCode Plasma Proteome URLs
+  - Ferkingstad et al. (2021) *Large-scale integration of the plasma proteome with genetics and disease.*
+    - Phenotype: TNFRSF4 (OX40) abundance measured using Somascan.
     - Population: 35,559 Icelanders from DeCode.
   - URL obtained from www.decode.com/summarydata/
 
