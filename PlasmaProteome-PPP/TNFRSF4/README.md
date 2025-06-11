@@ -1,4 +1,4 @@
-# TNFRSF4 → PPP Mendelian Randomisation: Pleiotropy
+# TNFRSF4 → PPP Mendelian Randomisation: MHC Region & Pleiotropy
 Further analysis of the apparent affect of TNFRSF4 on PPP. 
 
 * Following my first bulk analysis, which identified TNFRSF4 as a potential mediator of SmkInit → PPP, I removed 4 SNPs from the original analysis that are located in the MHC region.
