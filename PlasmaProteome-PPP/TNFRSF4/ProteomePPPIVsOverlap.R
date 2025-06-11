@@ -1,13 +1,15 @@
+# Packages
 library(tidyverse)
 library(TwoSampleMR)
 library(ggnewscale)
 library(lemon)
 
 # Set wd
-setwd('/Users/alicesmail/Desktop/2022-2024/KCL/MR/Proteome_PPP_IVs/Proteome_PPP_Harm_Incl_Outliers')
+setwd('./Proteome-PPP-Harmonised/')
 theme <- theme_classic() + theme(text=element_text(size=12, family='Franklin Gothic Book'))
 filelist = list.files(pattern = ".*.txt")
 
+# FUNCTIONS ##########################################################################################
 # MR Scatter function
 mr_scatter_plot <- function(mr_results, dat){
   mrres <- plyr::dlply(dat, c("id.exposure", "id.outcome"), function(d){
@@ -61,6 +63,7 @@ mr_scatter_plot <- function(mr_results, dat){
   mrres
 }
 
+# Modified MR scatter plot
 mr_scatter_plot2 <- function(mr_results, dat){
   mrres <- plyr::dlply(dat, c("id.exposure", "id.outcome"), function(d){
     d <- plyr::mutate(d)
@@ -116,6 +119,7 @@ mr_scatter_plot2 <- function(mr_results, dat){
   mrres
 }
 
+# GATHER IV FILES ####################################################################################
 # Read one file
 x <- read.table(filelist[1], header=TRUE, fill=TRUE, sep=',')
 x <- x %>% select(SNP, exposure, chr.outcome, pos.outcome, beta.exposure, pval.exposure)
@@ -129,6 +133,7 @@ for (file in 2:length(filelist)){
   x <- rbind(x,y)
 }
 
+# TNFRSF4 RESULTS ####################################################################################
 # Get TNFRSF4 SNPs
 TNFRSF4Harm <- read.table('Harm_TNFRSF4_PPP_MHC_Removed_Manual.txt', header=TRUE, fill=TRUE, sep=',') %>% 
   filter(mr_keep == TRUE)
@@ -139,7 +144,6 @@ res <- mr(TNFRSF4Harm, method_list = c('mr_egger_regression', 'mr_simple_median'
 TNFRSF4Harm$colour <- ifelse(TNFRSF4Harm$SNP %in% c('rs11066309', 'rs597808', 'rs7968960'), 'Pleiotropic', 'NA')
 TNFRSF4Harm$label <- ifelse(TNFRSF4Harm$SNP %in% c('rs11066309', 'rs597808', 'rs7968960'), 'Pleiotropic', NA)
 
-# Final results ################################################################
 # Get results
 beta <- res[res$method == 'Inverse variance weighted (multiplicative random effects)',]$b
 se <- res[res$method == 'Inverse variance weighted (multiplicative random effects)',]$se
@@ -153,47 +157,23 @@ ci <- exp(beta)*se
 lower <- exp(beta)-ci*qnorm(0.975)
 upper <- exp(beta)+ci*qnorm(0.975)
 
-################################################################################
-# Scatter
+# Scatter plot
 scatter <- mr_scatter_plot2(res, TNFRSF4Harm)
 scatter[[1]] 
 
-# Plot
+# Save plot
 ggsave(filename='PleiotropicSNPsTNFRSF4.png', plot=scatter[[1]], width=989/3, height=357/3, units='mm', dpi = 300)
 
 # Single SNP
 singleSNP <- mr_singlesnp(TNFRSF4Harm)
 mr_forest_plot(singleSNP)[[1]] + theme_classic()+ theme(text = element_text(size = 12, family='Franklin Gothic Book'))
 
-# Heatmap
-ggplot(TNFRSF4Harm, aes(x=1, y=fct_reorder(SNP, beta.exposure), fill=beta.exposure)) + 
-  geom_tile(color="black", size=1)+
-  geom_tile(fill='white')+
-  geom_tile(alpha=0.75) +
-  xlab("") +
-  theme +
-  scale_fill_gradientn(limits=c(-0.35, 0.2), 
-                      colours=c('#5f8fb0', '#93b572', '#e7d044', '#d10000'),
-                       na.value='#5f8fb0',
-                       guide=guide_colorbar(frame.colour="black", 
-                                            ticks.colour="black", 
-                                            alpha=0.75, 
-                                            title='Beta Effect'))
-
-# Remove pleiotropic SNPs
-TNFRSF4HarmP <- TNFRSF4Harm %>% filter(!label %in% 'Pleiotropic')
-resP <- mr(TNFRSF4HarmP, method_list = c('mr_egger_regression', 'mr_simple_median', 'mr_weighted_median', 'mr_ivw_mre'))
-
-# Scatter
-scatter <- mr_scatter_plot2(resP, TNFRSF4HarmP)
-scatter[[1]] 
-
-################################# All Heatmap ##################################
+# TNFRSF4 IV PLEIOTROPY ##############################################################################
 # Write SNPs to file
-lapply(c(TNFRSF4Harm$SNP), write, "/Users/alicesmail/Desktop/2022-2024/KCL/MR/Proteome_PPP_IVs/SNPList.txt", append=TRUE)
+lapply(c(TNFRSF4Harm$SNP), write, "SNPList.txt", append=TRUE)
 
 # Get all files
-setwd('/Users/alicesmail/Desktop/2022-2024/KCL/MR/Proteome_PPP_IVs/ProteomeSNPList')
+setwd('./ProteomeSNPList/')
 filelist = list.files(pattern = ".*.txt")
 
 # Read one file
@@ -243,6 +223,7 @@ filtSum <- filtSum[match(rev(filtLevels$SNP), filtSum$SNP),]
 filtSum$sigNum <- filtSum$sigNum-1
 nums <- filtSum$sigNum
 
+# TNFRSF4 IV PLEIOTROPY PLOT #########################################################################
 # Heatmap
 p <- ggplot(filt, aes(x=factor(EXP), y=SNP, fill=BETA)) + 
   
@@ -314,5 +295,6 @@ p <- ggplot(filt, aes(x=factor(EXP), y=SNP, fill=BETA)) +
 # Plot
 ggsave(filename='SummaryPlot.png', plot=p, width=989/4, height=357/4, units='mm', dpi = 300)
 
+# END ################################################################################################
 
 
