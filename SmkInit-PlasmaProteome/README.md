@@ -7,11 +7,6 @@ SmkInitPlasmaProteome.R performs separate MR analyses to estimate the causal eff
     * Phenotype: ever or never being a regular smoker.
     * Population: 2,669,029 European individuals from the US, Europe & Australia.
 
-- Exposure Validation GWAS: Cigarettes per Day
-  - Saunders et al. (2022) *Genetic diversity fuels gene discovery for tobacco and alcohol use.*
-    - Phenotype: ever or never being a regular smoker.
-    - Population: 2,669,029 European individuals from the US, Europe & Australia.
-
 * Outcome GWAS: UK BioBank Plasma Proteome URLs (PlasmaProteomeURLs.txt)
   * Eldjarn et al. (2023) *Large-scale plasma proteomics comparisons through genetics and disease associations*.
     * Phenotype: plasma protein abundance measured using Olink.
