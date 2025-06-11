@@ -2,7 +2,7 @@
 PlasmaProteomePPP.R performs separate MR analyses to estimate the causal effect of different plasma protein levels on PPP.
 
 ### Input files
-- Exposure GWAS: deCODE Plasma Proteome URLs (PlasmaProteomeURLs.txt)
+- Exposure GWAS: UK BioBank Plasma Proteome URLs (PlasmaProteomeURLs.txt)
   - Eldjarn et al. (2023) *Large-scale plasma proteomics comparisons through genetics and disease associations*.
     - Phenotype: plasma protein abundance measured using Olink.
     - Population: 46,218 British or Irish individuals from the UK BioBank.
@@ -24,4 +24,4 @@ PlasmaProteomePPP.R performs separate MR analyses to estimate the causal effect 
 	- Additional tests performed & plots created.
 3. Outputs saved.
 
-* SNPs in the Plasma Proteome IVs that were absent from the outcome GWAS were identified using the *LDproxy_batch* function (https://www.rdocumentation.org/packages/LDlinkR/versions/1.4.0/topics/LDproxy_batch) and munged using the *munge_proxies* function from https://andrewslabucsf.github.io/MR-tutorial/scripts/mr_harmonization.html. These are saved in MR_Functions.R.
+* SNPs in the Plasma Proteome IVs that were absent from the outcome GWAS were identified using the *LDproxy_batch* function (https://www.rdocumentation.org/packages/LDlinkR/versions/1.4.0/topics/LDproxy_batch) and munged using the *munge_proxies* function from https://andrewslabucsf.github.io/MR-tutorial/scripts/mr_harmonization.html. These are saved in `MR_Functions.R`.
