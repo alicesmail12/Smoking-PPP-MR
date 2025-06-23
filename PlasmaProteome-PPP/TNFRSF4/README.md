@@ -11,5 +11,5 @@ Further analysis of the apparent affect of TNFRSF4 on PPP.
 ### Pleiotropy
 * I then looked at sources of pleiotropy that might arise from the SNPs used as TNFRSF4 IVs, as other protein levels may be influencing this finding.
   * `TNFRSF4-PPP-IVs-Overlap.R` looks at which TNFRSF4 IVs are pleiotropic: which IVs are also IVs for other proteins measured in Step 2 of this analysis.
-  * The result is displayed in `Pleiotropy-Summary-Plot.png`.
-  * `Pleiotropic-SNPs-TNFRSF4.png` is an MR plot including the 14 SNPs obtained after MHC-SNP removal, which highlights the 3 most pleiotropic SNPs.
+  * The result is displayed in `Pleiotropy-Summary-Plot.png`, where asterisks denote significant associations. SNPs rs7525284 and rs78037977 are located in proximity of the TNFRSF4 gene region. The remaining SNPs are trans-acting. 
+  * `Pleiotropic-SNPs-TNFRSF4.png` is an MR plot including the 14 SNPs obtained after MHC-SNP removal. The 3 most pleiotropic SNPs are highlighted in light blue.
