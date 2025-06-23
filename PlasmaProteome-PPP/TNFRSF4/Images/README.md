@@ -1,1 +1,1 @@
-The heatmap 'Pleiotropy-Summary-Plot.png' cross references each SNP used as an IV for TNFRSF4 with the effect these SNPs have on the other proteins assessed in step 2 of this analysis.
+The heatmap 'Pleiotropy-Summary-Plot.png' cross references each SNP used as an IV for TNFRSF4 with the effect these SNPs have on the other proteins assessed in step 2 of this analysis. It can be seen that 3 SNPs are highly pleiotropic, these are highlighted in.
