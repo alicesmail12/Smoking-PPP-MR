@@ -13,6 +13,7 @@ PlasmaProteomePPP.R performs separate MR analyses to estimate the causal effect 
     * UK: 288 cases & 7,321 controls
     * HUNT: 225 cases & 64,050 controls
     * FinnGenn: 969 cases & 330,975 controls
+  * Accession ID: GCST90624455
 
 ### Steps
 1. PPP GWAS filtered & formatted for MR.
